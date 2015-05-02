@@ -1,0 +1,24 @@
+{
+  "name": "http-capture",
+  "version": "1.0.0",
+  "description": "Express/Connect middleware for capturing HTTP request and responses",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "http",
+    "capture",
+    "express",
+    "connect",
+    "peek",
+    "save",
+    "debug"
+  ],
+  "repository": "tonyffrench/http-capture",
+  "author": "Tony Ffrench",
+  "license": "MIT",
+  "dependencies": {
+    "moment": "^2.10.2"
+  }
+}
