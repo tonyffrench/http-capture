@@ -3,7 +3,7 @@
 [![NPM Version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][downloads-url]
 
-Node.js express middleware for capturing HTTP request and response
+Node.js express middleware for capturing HTTP request and responses
 
 ## Install
 
