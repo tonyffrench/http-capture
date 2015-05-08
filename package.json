@@ -1,6 +1,6 @@
 {
   "name": "http-capture",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Express/Connect middleware for capturing HTTP request and responses",
   "main": "index.js",
   "scripts": {

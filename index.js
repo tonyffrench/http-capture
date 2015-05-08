@@ -1,5 +1,6 @@
 var fs = require ('fs'),
     util = require ('util'),
+    http = require ('http'),
     moment = require ('moment');
 
 module.exports = function () {  
@@ -27,6 +28,10 @@ module.exports = function () {
             if (_headersDone == false)
             {
                 output.write ('\n<<< response <<<\n');
+                output.write (util.format ('HTTP/%s %s %s\r\n',
+                              req.httpVersion,
+                              res.statusCode,
+                              http.STATUS_CODES[res.statusCode]));
                 for (var header in res._headers) {
                     output.write (util.format ('%s: %s\r\n',
                                                header,
@@ -49,11 +54,11 @@ module.exports = function () {
                                        req.headers[header]));
         }
         output.write ('\r\n');
-      
+
         req.on('close', function(){
             res.write = res.end = noop
         });
-     
+
         req.pipe (output, { end: false });
 
         res.write = function (chunk) {
@@ -64,7 +69,7 @@ module.exports = function () {
 
         res.end = function (chunk) {
             outputResHeaders();
-            output.write (chunk.toString());
+            if (chunk) output.write (chunk.toString());
             output.end();
             _end.apply (res, arguments);
         };
